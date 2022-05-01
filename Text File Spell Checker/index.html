@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>HCI Project 3</title>
+    <script type="text/javascript" src="script.js"></script>
+    <style>
+        #original, #recommend {
+            width: 80%;
+            margin-left: 10%;
+            padding: 10px;
+            font-size: 1.1rem;
+        }
+        .exp {
+            font-weight: 550;
+        }
+        #highlight {
+            background-color: yellow;
+        }
+    </style>
+</head>
+<body style="text-align: center;">
+    <h2>Text File Spell Checker</h2> <br>
+    <div class="exp">Upload Text File</div> <br>
+    <input type="file" accept=".txt" name="inputText" id="inputText" onchange="checkFile();"/>
+
+    <br><br><br>
+
+    <div class="exp">Input Text</div> <br>
+
+    <div id="original"></div>
+
+    <br><br><br>
+
+    <div class="exp">Recommendation</div> <br>
+
+    <div id="recommend"></div>
+</body>
+</html>
