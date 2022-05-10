@@ -4,7 +4,6 @@ from tkinter import *
 misspList = []
 misspFile = "data/missp.txt"
 with open(misspFile) as file:
-    #missp = file.read().splitlines()
     missp = file.read().split('$')
 for i in range(len(missp)):
     misspList.append(missp[i].split())
