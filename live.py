@@ -52,6 +52,9 @@ class Corrector:
         missp_src = parent_dir / 'data' / 'missp.txt'
         missp = open(missp_src).read().split('$')
 
+        bigrams_src = parent_dir / 'data' / 'count_2l.txt'
+        self.bigrams = list(line.split()[0] for line in open(bigrams_src).readlines())
+
         self.word = ''
 
         self.missp_list = []
@@ -72,7 +75,14 @@ class Corrector:
         if not corrections:
             return ''
         else:
-            return corrections[0]
+
+            corrections_valued = {}
+            for c in corrections:
+                for i, b in enumerate(self.bigrams):
+                    if b in c:
+                        corrections_valued[c] = i
+
+            return max(corrections_valued, key=corrections_valued.get)
 
 
 class Suggester:
