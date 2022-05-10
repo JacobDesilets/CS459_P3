@@ -122,9 +122,7 @@ class Suggester:
             if len(self.word_list) > self.word_repetition_cutoff:
                 if output in self.word_list[-self.word_repetition_cutoff:]:
                     candidate_values.pop(output)
-                    print('Same')
                     output = max(candidate_values, key=candidate_values.get)
-            print(f'{output}: {candidate_values[output]}')
             return output
         else:
             return ''
@@ -134,8 +132,8 @@ class Suggester:
             prev_word_1 = self.word_list[-1].strip().lower()
             prev_word_2 = self.word_list[-2].strip().lower()
         else:
-            prev_word_1 = ''
-            prev_word_2 = ''
+            return ''
+
 
         candidates = {}
         for triple in self.counted_word_triples.keys():
@@ -148,9 +146,7 @@ class Suggester:
             if len(self.word_list) > self.word_repetition_cutoff:
                 if output in self.word_list[-self.word_repetition_cutoff:]:
                     candidate_values.pop(output)
-                    print('Same')
                     output = max(candidate_values, key=candidate_values.get)
-            print(f'{output}: {candidate_values[output]}')
             return output
         else:
             return ''

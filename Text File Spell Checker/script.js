@@ -3,7 +3,7 @@ var changeWord = [];
 
 function getMissp() {
     var raw = new XMLHttpRequest();
-    raw.open("GET", "../data/missp.txt", true);
+    raw.open("GET", "http://localhost:8000/missp.txt", true);
     raw.onreadystatechange = function() {
         if (raw.readyState === 4) {
             var allText = raw.responseText.split('$');
@@ -48,10 +48,12 @@ function checkError(text) {
     }
 
     for (var i = 0; i < changedWords.length; i++) {
+        console.log(misspList.length)
         var checkWord = changedWords[i];
         var recommendList = [];
         for (var j = 0; j < misspList.length; j++) {
             if (misspList[j].includes(checkWord) && misspList[j][0] !== checkWord) {
+
                 recommendList.push(misspList[j][0])
             }
         }
